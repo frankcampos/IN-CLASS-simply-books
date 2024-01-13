@@ -15,7 +15,15 @@ function AuthorCard({ authorObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px', background: 'grey', border: 'solid', borderColor: 'white' }}>
+    <Card
+      style={{
+        width: '18rem',
+        margin: '10px',
+        background: 'grey',
+        border: 'solid',
+        borderColor: 'white',
+      }}
+    >
       <Card.Body>
         <Card.Title>{authorObj.first_name}</Card.Title>
         <p className="card-text bold">

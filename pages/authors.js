@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
@@ -17,7 +18,7 @@ function Authors() {
   // TODO: make the call to the API to get all the authors on component render
   useEffect(() => {
     getAlltheAuthors();
-  }, [authors]);
+  }, []);
 
   return (
     <div className="text-center my-4">
