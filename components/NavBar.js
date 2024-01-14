@@ -3,11 +3,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import {
-  Navbar, Container, Nav,
-} from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
-export default function NavBar() {
+export default function NavBar({ user }) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -28,11 +26,21 @@ export default function NavBar() {
               <Nav.Link>Authors</Nav.Link>
             </Link>
             <Link passHref href="/author/new">
-              <Nav.Link>Create Author</Nav.Link>
+              <Nav.Link>{user.displayName}</Nav.Link>
             </Link>
             <Link passHref href="/author/edit/firebaseKey">
               <Nav.Link>Edit Author</Nav.Link>
             </Link>
+            <img
+              src={user.photoURL}
+              alt="mypic"
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+              }}
+            />
           </Nav>
         </Navbar.Collapse>
       </Container>
