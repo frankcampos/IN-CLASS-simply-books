@@ -19,17 +19,11 @@ export default function NavBar({ user }) {
             <Link passHref href="/">
               <Nav.Link>Books</Nav.Link>
             </Link>
-            <Link passHref href="/book/new">
-              <Nav.Link>Create Book</Nav.Link>
-            </Link>
             <Link passHref href="/authors">
               <Nav.Link>Authors</Nav.Link>
             </Link>
             <Link passHref href="/author/new">
               <Nav.Link>{user.displayName}</Nav.Link>
-            </Link>
-            <Link passHref href="/author/edit/firebaseKey">
-              <Nav.Link>Edit Author</Nav.Link>
             </Link>
             <img
               src={user.photoURL}
@@ -54,3 +48,12 @@ NavBar.propTypes = {
     photoURL: PropTypes.string,
   }).isRequired,
 };
+
+// *cleanNavbar
+// 1.check almost amazon navbar,
+// 1 logo
+// 2 All Books
+// 3 Books on Sale
+// 4 Authors
+// 5 Search Book Title
+// 6 SIGNOUT (at the end of the navbar)
