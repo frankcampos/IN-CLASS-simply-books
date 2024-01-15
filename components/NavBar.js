@@ -3,11 +3,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import {
-  Navbar, Container, Nav,
-} from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
-export default function NavBar() {
+export default function NavBar({ user }) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -21,18 +19,22 @@ export default function NavBar() {
             <Link passHref href="/">
               <Nav.Link>Books</Nav.Link>
             </Link>
-            <Link passHref href="/book/new">
-              <Nav.Link>Create Book</Nav.Link>
-            </Link>
             <Link passHref href="/authors">
               <Nav.Link>Authors</Nav.Link>
             </Link>
             <Link passHref href="/author/new">
-              <Nav.Link>Create Author</Nav.Link>
+              <Nav.Link>{user.displayName}</Nav.Link>
             </Link>
-            <Link passHref href="/author/edit/firebaseKey">
-              <Nav.Link>Edit Author</Nav.Link>
-            </Link>
+            <img
+              src={user.photoURL}
+              alt="mypic"
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+              }}
+            />
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -46,3 +48,12 @@ NavBar.propTypes = {
     photoURL: PropTypes.string,
   }).isRequired,
 };
+
+// *cleanNavbar
+// 1.check almost amazon navbar,
+// 1 logo
+// 2 All Books
+// 3 Books on Sale
+// 4 Authors
+// 5 Search Book Title
+// 6 SIGNOUT (at the end of the navbar)

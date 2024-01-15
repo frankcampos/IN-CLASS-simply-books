@@ -1,5 +1,11 @@
-function New() {
-  return <div>This is the New Author page</div>;
+import AuthorForm from '../../components/forms/AuthorForm';
+
+function AddAuthor() {
+  return (
+    <div>
+      <AuthorForm />
+    </div>
+  );
 }
 
-export default New;
+export default AddAuthor;
