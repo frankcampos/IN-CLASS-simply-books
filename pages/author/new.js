@@ -1,6 +1,6 @@
 import AuthorForm from '../../components/forms/AuthorForm';
 
-function New() {
+function AddAuthor() {
   return (
     <div>
       <AuthorForm />
@@ -8,4 +8,4 @@ function New() {
   );
 }
 
-export default New;
+export default AddAuthor;

@@ -8,6 +8,7 @@ import { deleteSingleAuthor } from '../api/authorData';
 function AuthorCard({ authorObj, onUpdate }) {
   // FOR DELETE, WE NEED TO REMOVE THE Author AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE BOOKS
+  console.warn(authorObj.firebaseKey);
   const deleteThisAuthor = () => {
     if (window.confirm(`Dou you want to Delete ${authorObj.first_name} ${authorObj.last_name}?`)) {
       deleteSingleAuthor(authorObj.firebaseKey).then(() => onUpdate());
