@@ -1,4 +1,3 @@
-// TODO: import all libraries and components
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -6,7 +5,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
-import { createAuthor, getAuthors, updateAuthor } from '../../api/authorData';
+import { createAuthor, updateAuthor } from '../../api/authorData';
 // TODO: initialState
 const initialState = {
   first_name: '',
@@ -16,16 +15,13 @@ const initialState = {
 // TODO: Create function AuthorForm
 function AuthorForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
-  const [authors, setAuthors] = useState([]);
+  // const [authors, setAuthors] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
-    getAuthors(user.uid).then(setAuthors);
-    console.warn(authors);
-
     if (obj.firebaseKey) setFormInput(obj);
-  }, [obj, user]);
+  }, [obj]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
