@@ -23,11 +23,13 @@ export default function ViewAuthor() {
     });
   }, [firebaseKey]);
 
+  const justifyContentStyle = authorBooks.length === 1 ? 'center' : 'space-around';
+
   return (
     <div
       className="mt-5 d-flex flex-wrap"
       style={{
-        border: '2px solid green', justifyContent: 'center', justifyContent: 'space-around', alignContent: 'center',
+        border: '2px solid green', justifyContent: justifyContentStyle, alignContent: 'center',
       }}
     >
       {authorBooks.map((book) => (
