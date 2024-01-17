@@ -21,7 +21,10 @@ function Authors() {
   }, []);
 
   return (
-    <div className="text-center my-4">
+    <div
+      className="text-center my-4 "
+      style={{ border: '2px solid grey' }}
+    >
       <Link href="/author/new" passHref>
         <Button>Add A Author</Button>
       </Link>

@@ -24,11 +24,11 @@ function Home() {
   }, []);
 
   return (
-    <div className="text-center my-4">
+    <div className="text-center my-4" style={{ border: '2px solid green' }}>
       <Link href="/book/new" passHref>
         <Button>Add A Book</Button>
       </Link>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap" style={{ border: '2px solid green', justifyContent: 'space-evenly' }}>
         {/* TODO: map over books here using BookCard component */}
         {books.map((book) => (
           <BookCard key={book.firebaseKey} bookObj={book} onUpdate={getAllTheBooks} />

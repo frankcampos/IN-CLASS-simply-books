@@ -15,24 +15,40 @@ function BookCard({ bookObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={bookObj.image} alt={bookObj.title} style={{ height: '400px' }} />
-      <Card.Body>
-        <Card.Title>{bookObj.title}</Card.Title>
-        <p className="card-text bold">{bookObj.sale && <span>SALE<br /></span> } ${bookObj.price}</p>
-        {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
-        <Link href={`/book/${bookObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
-        </Link>
-        {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
-        <Link href={`/book/edit/${bookObj.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
-        </Link>
-        <Button variant="danger" onClick={deleteThisBook} className="m-2">
-          DELETE
-        </Button>
-      </Card.Body>
-    </Card>
+
+    <div className="mt-5 d-flex flex-wrap" style={{ border: '2px solid green' }}>
+      <Card style={{
+        width: '400px', minWidth: '350px', alignContent: 'space-evenly', border: '2px solid blue',
+      }}
+      >
+        <Card.Img variant="top" src={bookObj.image} alt={bookObj.title} style={{ height: '400px' }} />
+        <Card.Body>
+          <Card.Title>{bookObj.title}</Card.Title>
+          <p className="card-text bold">
+            {bookObj.sale && (
+              <span>
+                SALE
+                <br />
+              </span>
+            )}{' '}
+            ${bookObj.price}
+          </p>
+          {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
+          <Link href={`/book/${bookObj.firebaseKey}`} passHref>
+            <Button variant="primary" className="m-2">
+              VIEW
+            </Button>
+          </Link>
+          {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
+          <Link href={`/book/edit/${bookObj.firebaseKey}`} passHref>
+            <Button variant="info">EDIT</Button>
+          </Link>
+          <Button variant="danger" onClick={deleteThisBook} className="m-2">
+            DELETE
+          </Button>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 
