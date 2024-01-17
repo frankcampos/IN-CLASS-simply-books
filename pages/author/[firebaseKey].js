@@ -24,10 +24,24 @@ export default function ViewAuthor() {
   }, [firebaseKey]);
 
   return (
-    <div className="mt-5 d-flex flex-wrap">
+    <div
+      className="mt-5 d-flex flex-wrap"
+      style={{
+        border: '2px solid green', justifyContent: 'center', justifyContent: 'space-around', alignContent: 'center',
+      }}
+    >
       {authorBooks.map((book) => (
-        <div key={book.id} className="card m-2" style={{ width: '18rem' }}>
-          <img src={book.image} alt={book.title} className="card-img-top" style={{ width: '100%' }} />
+        <div
+          key={book.id}
+          className="card m-2"
+          style={{
+            width: '400px',
+            margin: '0 auto',
+            border: '2px solid magenta',
+            background: 'grey',
+          }}
+        >
+          <img src={book.image} alt={book.title} className="card-img-top" style={{ width: '100%', maxHeight: '350px' }} />
           <div className="card-body text-grey">
             <h5 className="card-title">
               {book.title} by {authorDetails.first_name} {authorDetails.last_name}
