@@ -3,38 +3,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import {
+  Navbar, Container, Nav, Button,
+} from 'react-bootstrap';
+import { signOut } from '../utils/auth';
 
 export default function NavBar({ user }) {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      style={{
+        width: '100%',
+        padding: '10px',
+      }}
+    >
+      <Container fluid>
         <Link passHref href="/">
           <Navbar.Brand>📚 Simply Books 📚</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
           <Nav className="ml-auto">
-            {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
+            {/* Links and other elements */}
             <Link passHref href="/">
               <Nav.Link>Books</Nav.Link>
             </Link>
             <Link passHref href="/authors">
               <Nav.Link>Authors</Nav.Link>
             </Link>
-            <Link passHref href="/author/new">
+            <Link passHref href="/profile">
               <Nav.Link>{user.displayName}</Nav.Link>
             </Link>
             <img
               src={user.photoURL}
-              alt="mypic"
+              alt="User profile"
               style={{
                 width: '40px',
                 height: '40px',
                 borderRadius: '50%',
                 objectFit: 'cover',
+                boxShadow: '0px 0px 10px rgba(255, 255, 255, 0.5)',
               }}
             />
+            {/* Consider using CSS for spacing */}
+            <Button type="button" size="lg" className="copy-btn" style={{ alignContent: 'end', margin: '0 10px 0 20px' }} onClick={signOut}>
+              SignOut
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

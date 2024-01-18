@@ -16,12 +16,12 @@ function BookCard({ bookObj, onUpdate }) {
 
   return (
 
-    <div className="mt-5 d-flex flex-wrap" style={{ border: '2px solid green' }}>
+    <div className="mt-5 d-flex flex-wrap" style={{ boxShadow: '0px 0px 10px rgba(255, 255, 255, 0.5)' }}>
       <Card style={{
-        width: '400px', minWidth: '350px', alignContent: 'space-evenly', border: '2px solid blue',
+        width: '400px', minWidth: '350px', alignContent: 'space-evenly', boxShadow: '0px 0px 10px rgba(255, 255, 255, 0.5)',
       }}
       >
-        <Card.Img variant="top" src={bookObj.image} alt={bookObj.title} style={{ height: '400px' }} />
+        <Card.Img variant="top" src={bookObj.image} alt={bookObj.title} style={{ height: '400px', boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)' }} />
         <Card.Body>
           <Card.Title>{bookObj.title}</Card.Title>
           <p className="card-text bold">
@@ -35,15 +35,15 @@ function BookCard({ bookObj, onUpdate }) {
           </p>
           {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
           <Link href={`/book/${bookObj.firebaseKey}`} passHref>
-            <Button variant="primary" className="m-2">
+            <Button variant="primary" className="m-2" style={{ boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)' }}>
               VIEW
             </Button>
           </Link>
           {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
           <Link href={`/book/edit/${bookObj.firebaseKey}`} passHref>
-            <Button variant="info">EDIT</Button>
+            <Button variant="info" style={{ boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)' }}>EDIT</Button>
           </Link>
-          <Button variant="danger" onClick={deleteThisBook} className="m-2">
+          <Button variant="danger" onClick={deleteThisBook} className="m-2" style={{ boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)' }}>
             DELETE
           </Button>
         </Card.Body>
