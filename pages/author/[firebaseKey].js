@@ -11,9 +11,6 @@ export default function ViewAuthor() {
 
   useEffect(() => {
     viewAuthorDetails(firebaseKey).then((response) => {
-      console.warn(response);
-      console.warn(response.books);
-      console.warn(response.first_name);
       if (response && Array.isArray(response.books)) {
         setAuthorBooks(response.books);
         setAuthorDetails(response);
@@ -26,12 +23,7 @@ export default function ViewAuthor() {
   const justifyContentStyle = authorBooks.length === 1 ? 'center' : 'space-around';
 
   return (
-    <div
-      className="mt-5 d-flex flex-wrap"
-      style={{
-        border: '2px solid green', justifyContent: justifyContentStyle, alignContent: 'center',
-      }}
-    >
+    <div className="mt-5 d-flex flex-wrap" style={{ justifyContent: justifyContentStyle, alignContent: 'center' }}>
       {authorBooks.map((book) => (
         <div
           key={book.id}
@@ -39,11 +31,11 @@ export default function ViewAuthor() {
           style={{
             width: '400px',
             margin: '0 auto',
-            border: '2px solid magenta',
+            boxShadow: '0px 0px 10px rgba(255, 255, 255, 0.5)',
             background: 'grey',
           }}
         >
-          <img src={book.image} alt={book.title} className="card-img-top" style={{ width: '100%', maxHeight: '350px' }} />
+          <img src={book.image} alt={book.title} className="card-img-top" style={{ width: '100%', maxHeight: '350px', boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)' }} />
           <div className="card-body text-grey">
             <h5 className="card-title">
               {book.title} by {authorDetails.first_name} {authorDetails.last_name}
@@ -51,7 +43,7 @@ export default function ViewAuthor() {
             </h5>
             <p className="card-text">{book.description || ''}</p>
             <p>{book.sale ? `🏷️ Sale $${book.price}` : `$${book.price}`}</p>
-            <a href={`mailto:${authorDetails.email}`} className="btn btn-primary">
+            <a href={`mailto:${authorDetails.email}`} className="btn btn-primary" style={{ boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)' }}>
               Contact Author
             </a>
           </div>
