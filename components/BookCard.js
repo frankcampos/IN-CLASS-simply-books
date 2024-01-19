@@ -21,7 +21,14 @@ function BookCard({ bookObj, onUpdate }) {
         width: '400px', minWidth: '350px', alignContent: 'space-evenly', boxShadow: '0px 0px 10px rgba(255, 255, 255, 0.5)',
       }}
       >
-        <Card.Img variant="top" src={bookObj.image} alt={bookObj.title} style={{ height: '400px', boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)' }} />
+        <Card.Img
+          variant="top"
+          src={bookObj.image}
+          alt={bookObj.title}
+          style={{
+            height: '100%', width: '100%', minWidth: '350px', boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)',
+          }}
+        />
         <Card.Body>
           <Card.Title>{bookObj.title}</Card.Title>
           <p className="card-text bold">

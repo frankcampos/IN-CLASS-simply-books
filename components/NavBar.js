@@ -22,7 +22,23 @@ export default function NavBar({ user }) {
     >
       <Container fluid>
         <Link passHref href="/">
-          <Navbar.Brand>📚 Simply Books 📚</Navbar.Brand>
+          <Navbar.Brand>
+            <img src="/no_book.png" alt="No Simple Books" style={{ height: '40px', backgroundColor: 'transparent' }} />
+            <img
+              src="/fire_icon.png" // Adjust the filename as needed
+              alt="Simply Books on Fire"
+              style={{
+                height: '100px', width: '180px', backgroundColor: 'transparent', marginBottom: '0',
+              }}
+            />
+            <img
+              src="/no_book.png"
+              alt="No Simple Books"
+              style={{
+                height: '40px', backgroundColor: 'transparent',
+              }}
+            />
+          </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
