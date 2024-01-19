@@ -4,25 +4,23 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import { deleteSingleAuthor } from '../api/authorData';
+import { deleteAuthorBooks } from '../api/mergedData';
 
 function AuthorCard({ authorObj, onUpdate }) {
   // FOR DELETE, WE NEED TO REMOVE THE Author AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE BOOKS
-  console.warn(authorObj.firebaseKey);
   const deleteThisAuthor = () => {
     if (window.confirm(`Dou you want to Delete ${authorObj.first_name} ${authorObj.last_name}?`)) {
-      deleteSingleAuthor(authorObj.firebaseKey).then(() => onUpdate());
+      deleteSingleAuthor(authorObj.firebaseKey).then(() => deleteAuthorBooks(authorObj.firebaseKey)).then(() => onUpdate());
     }
   };
-
   return (
     <Card
       style={{
         width: '18rem',
         margin: '10px',
         background: 'grey',
-        border: 'solid',
-        borderColor: 'white',
+        boxShadow: '0px 0px 10px rgba(255, 255, 255, 0.5)',
       }}
     >
       <Card.Body>
@@ -38,15 +36,17 @@ function AuthorCard({ authorObj, onUpdate }) {
         </p>
         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
         <Link href={`/author/${authorObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">
+          <Button variant="primary" className="m-2" style={{ boxShadow: '0px 0px 10px rgba(255, 255, 255, 0.5)' }}>
             VIEW
           </Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
         <Link href={`/author/edit/${authorObj.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
+          <Button variant="info" style={{ boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)' }}>
+            EDIT
+          </Button>
         </Link>
-        <Button variant="danger" onClick={deleteThisAuthor} className="m-2">
+        <Button variant="danger" style={{ boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)' }} onClick={deleteThisAuthor} className="m-2">
           DELETE
         </Button>
       </Card.Body>

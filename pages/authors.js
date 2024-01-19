@@ -21,11 +21,14 @@ function Authors() {
   }, []);
 
   return (
-    <div className="text-center my-4">
+    <div
+      className="text-center my-4 "
+      style={{ alignContent: 'space-around' }}
+    >
       <Link href="/author/new" passHref>
-        <Button>Add A Author</Button>
+        <Button style={{ margin: '0 0 10px' }}>Add A Author</Button>
       </Link>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap" style={{ justifyContent: 'space-evenly' }}>
         {/* TODO: map over books here using BookCard component */}
         {authors.map((author) => (
           <AuthorCard key={author.firebaseKey} authorObj={author} onUpdate={getAlltheAuthors} />
