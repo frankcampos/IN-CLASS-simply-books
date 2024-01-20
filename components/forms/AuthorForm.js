@@ -11,6 +11,7 @@ const initialState = {
   first_name: '',
   last_name: '',
   email: '',
+  image: '',
 };
 // TODO: Create function AuthorForm
 function AuthorForm({ obj }) {
@@ -49,16 +50,27 @@ function AuthorForm({ obj }) {
   return (
     <Form onSubmit={handleSubmit}>
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'}Author</h2>
+      {/* IMAGE INPUT  */}
+      <FloatingLabel controlId="floatingInput1" label="Author Image" className="mb-3">
+        <Form.Control
+          type="url"
+          placeholder="Enter an image url"
+          name="image"
+          value={formInput.image}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
       {/* FIRST NAME INPUT  */}
-      <FloatingLabel controlId="floatingInput1" label="First Name" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="First Name" className="mb-3">
         <Form.Control type="text" placeholder="First Name" name="first_name" value={formInput.first_name} onChange={handleChange} required />
       </FloatingLabel>
       {/* LAST NAME INPUT  */}
-      <FloatingLabel controlId="floatingInput2" label="Last Name" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="Last Name" className="mb-3">
         <Form.Control type="text" placeholder="Last Name" name="last_name" value={formInput.last_name} onChange={handleChange} required />
       </FloatingLabel>
       {/* EMAIL INPUT  */}
-      <FloatingLabel controlId="floatingInput3" label="Email" className="mb-3">
+      <FloatingLabel controlId="floatingInput4" label="Email" className="mb-3">
         <Form.Control type="email" placeholder="email" name="email" value={formInput.email} onChange={handleChange} required />
       </FloatingLabel>
       {/* SUBMIT BUTTON  */}

@@ -23,6 +23,14 @@ function AuthorCard({ authorObj, onUpdate }) {
         boxShadow: '0px 0px 10px rgba(255, 255, 255, 0.5)',
       }}
     >
+      <Card.Img
+        variant="top"
+        src={authorObj.image}
+        alt={authorObj.email}
+        style={{
+          height: '100%', width: '100%', boxShadow: '0px 1rem 1.5rem rgba(0, 0, 0, 0.5)', objectFit: 'contain',
+        }}
+      />
       <Card.Body>
         <Card.Title>{authorObj.first_name}</Card.Title>
         <p className="card-text bold">
@@ -56,6 +64,7 @@ function AuthorCard({ authorObj, onUpdate }) {
 
 AuthorCard.propTypes = {
   authorObj: PropTypes.shape({
+    image: PropTypes.string,
     email: PropTypes.string,
     last_name: PropTypes.string,
     first_name: PropTypes.string,
