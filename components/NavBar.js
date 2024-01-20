@@ -47,6 +47,9 @@ export default function NavBar({ user }) {
             <Link passHref href="/">
               <Nav.Link>Books</Nav.Link>
             </Link>
+            <Link passHref href="/book/bookOnSale">
+              <Nav.Link>Books On Sale</Nav.Link>
+            </Link>
             <Link passHref href="/authors">
               <Nav.Link>Authors</Nav.Link>
             </Link>
